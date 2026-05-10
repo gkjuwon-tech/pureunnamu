@@ -19,6 +19,7 @@ const aboutSubNav = [
   { label: "인사말", href: "/about" },
   { label: "연혁", href: "/about/history" },
   { label: "센터장소개", href: "/about/director" },
+  { label: "치료사 소개", href: "/about/therapists" },
   { label: "찾아오시는길", href: "/about/directions" },
 ];
 

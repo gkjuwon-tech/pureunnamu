@@ -44,7 +44,7 @@ model FreeBoard {
   parent           FreeBoard?  @relation("FreeBoardReplies", fields: [parentId], references: [id])
   replies          FreeBoard[] @relation("FreeBoardReplies")
   views            Int         @default(0)
-  moderationStatus String      @default("PASS") // PASS | REVIEW | BLOCK
+  moderationStatus String      @default("PASS")
   moderationReason String      @default("")
   createdAt        DateTime    @default(now())
   updatedAt        DateTime    @updatedAt
@@ -55,9 +55,13 @@ model Inquiry {
   name      String
   phone     String
   email     String   @default("")
+  // 클라이언트 요청: 성별/나이 추가 (선택 입력)
+  gender    String   @default("")
+  age       Int?
   subject   String
   content   String
   isRead    Boolean  @default(false)
+  reply     String   @default("")
   createdAt DateTime @default(now())
 }
 
@@ -66,5 +70,27 @@ model GalleryItem {
   category  String
   title     String
   imageUrl  String
+  sortOrder Int      @default(0)
   createdAt DateTime @default(now())
+}
+
+// 치료사 소개 (사진 없이 텍스트 자료만 등록 - 추후 콘텐츠 추가 예정)
+model Therapist {
+  id        Int      @id @default(autoincrement())
+  name      String
+  title     String   @default("")
+  bio       String   @default("")
+  photoUrl  String   @default("")
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// 어드민 계정 (소장님)
+model AdminUser {
+  id           Int      @id @default(autoincrement())
+  username     String   @unique
+  passwordHash String
+  name         String   @default("관리자")
+  createdAt    DateTime @default(now())
 }

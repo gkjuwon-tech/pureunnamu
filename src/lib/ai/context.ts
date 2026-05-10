@@ -34,7 +34,6 @@ export const CENTER_CONTEXT = `[푸른나무 심리센터 종합 정보]
 
 ■ 연락처
 - 전화: 043-288-4040 (대표)
-- 휴대폰: 010-5169-4248
 - 이메일: dellamico@hanmail.net
 - 네이버 블로그: https://blog.naver.com/greentreect/221530622467
 

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { SITE } from "@/lib/constants";
-import { IconTree, IconMapPin, IconPhone, IconMobile, IconMail } from "@/components/icons";
+import { IconTree, IconMapPin, IconPhone, IconMail } from "@/components/icons";
 
 export default function Footer() {
   return (
@@ -32,7 +32,6 @@ export default function Footer() {
             <div className="space-y-3 text-sm text-white/60 leading-relaxed">
               <p className="flex items-center gap-2.5"><IconMapPin size={14} className="shrink-0 text-white/40" /> {SITE.address}</p>
               <p className="flex items-center gap-2.5"><IconPhone size={14} className="shrink-0 text-white/40" /> {SITE.phone}</p>
-              <p className="flex items-center gap-2.5"><IconMobile size={14} className="shrink-0 text-white/40" /> {SITE.mobile}</p>
               <p className="flex items-center gap-2.5"><IconMail size={14} className="shrink-0 text-white/40" /> {SITE.email}</p>
             </div>
           </div>

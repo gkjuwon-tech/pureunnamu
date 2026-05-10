@@ -19,9 +19,10 @@ export const metadata: Metadata = {
 
 const programSubNav = [
   { label: "심리치료란?", href: "/programs/therapy" },
-  { label: "개인심리치료", href: "/programs/targets" },
   { label: "심리검사", href: "/programs/assessment" },
-  { label: "사회성향상집단상담", href: "/programs/group-therapy" },
+  { label: "개인심리치료", href: "/programs/targets" },
+  { label: "가족심리치료", href: "/programs/family" },
+  { label: "사회성그룹치료", href: "/programs/group-therapy" },
   { label: "인지학습치료", href: "/programs/cognitive-learning" },
 ];
 

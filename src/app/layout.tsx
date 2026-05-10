@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import ChatbotWidget from "@/components/ui/ChatbotWidget";
+import PublicChrome from "@/components/layout/PublicChrome";
 import { SITE } from "@/lib/constants";
 
 export const viewport: Viewport = {
@@ -213,7 +211,7 @@ function LocalBusinessJsonLd() {
         name: "예약은 어떻게 하나요?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "전화(043-288-4040), 문자(010-5169-4248), 또는 홈페이지 온라인 문의를 통해 예약하실 수 있습니다. 100% 예약제로 운영됩니다.",
+          text: "전화(043-288-4040) 또는 홈페이지 온라인 문의를 통해 예약하실 수 있습니다. 100% 예약제로 운영됩니다.",
         },
       },
     ],
@@ -248,10 +246,7 @@ export default function RootLayout({
         <LocalBusinessJsonLd />
       </head>
       <body className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <ChatbotWidget />
+        <PublicChrome>{children}</PublicChrome>
       </body>
     </html>
   );

@@ -196,27 +196,77 @@ a {
   animation: gallery-lb-in 0.25s ease-out;
 }
 
-/* ── 히어로 잎사귀 떠다니기 ── */
-@keyframes hero-leaf-fall {
+/* ── 히어로 잎사귀 떨어지기 (3단 속도 레이어) ──
+   --rot-start / --rot-end / --sway-phase 는 컴포넌트에서 인라인으로 주입.
+   sway(좌우 흔들림)는 transform 두번 nested 가 안되니 애니메이션 분리.
+*/
+
+@keyframes hero-leaf-fall-fast {
   0% {
-    transform: translateY(-60px) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(var(--rot-start, 0deg));
   }
   100% {
-    transform: translateY(calc(100vh + 60px)) rotate(360deg);
-    opacity: 0;
+    transform: translate3d(0, 110vh, 0) rotate(var(--rot-end, 360deg));
   }
 }
 
-.hero-leaf {
-  animation: hero-leaf-fall linear infinite;
-  top: -60px;
+@keyframes hero-leaf-fall-mid {
+  0% {
+    transform: translate3d(-12px, 0, 0) rotate(var(--rot-start, 0deg));
+  }
+  25% {
+    transform: translate3d(14px, 27.5vh, 0) rotate(calc(var(--rot-start, 0deg) + (var(--rot-end, 360deg) - var(--rot-start, 0deg)) * 0.25));
+  }
+  50% {
+    transform: translate3d(-14px, 55vh, 0) rotate(calc(var(--rot-start, 0deg) + (var(--rot-end, 360deg) - var(--rot-start, 0deg)) * 0.5));
+  }
+  75% {
+    transform: translate3d(12px, 82.5vh, 0) rotate(calc(var(--rot-start, 0deg) + (var(--rot-end, 360deg) - var(--rot-start, 0deg)) * 0.75));
+  }
+  100% {
+    transform: translate3d(-8px, 110vh, 0) rotate(var(--rot-end, 360deg));
+  }
+}
+
+@keyframes hero-leaf-fall-slow {
+  0% {
+    transform: translate3d(-22px, 0, 0) rotate(var(--rot-start, 0deg));
+  }
+  20% {
+    transform: translate3d(22px, 22vh, 0) rotate(calc(var(--rot-start, 0deg) + (var(--rot-end, 360deg) - var(--rot-start, 0deg)) * 0.2));
+  }
+  40% {
+    transform: translate3d(-22px, 44vh, 0) rotate(calc(var(--rot-start, 0deg) + (var(--rot-end, 360deg) - var(--rot-start, 0deg)) * 0.4));
+  }
+  60% {
+    transform: translate3d(22px, 66vh, 0) rotate(calc(var(--rot-start, 0deg) + (var(--rot-end, 360deg) - var(--rot-start, 0deg)) * 0.6));
+  }
+  80% {
+    transform: translate3d(-22px, 88vh, 0) rotate(calc(var(--rot-start, 0deg) + (var(--rot-end, 360deg) - var(--rot-start, 0deg)) * 0.8));
+  }
+  100% {
+    transform: translate3d(-10px, 110vh, 0) rotate(var(--rot-end, 360deg));
+  }
+}
+
+.hero-leaf-fall {
+  position: absolute;
+  display: inline-block;
+  will-change: transform;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.hero-leaf-fast {
+  animation-name: hero-leaf-fall-fast;
+}
+.hero-leaf-mid {
+  animation-name: hero-leaf-fall-mid;
+  animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+.hero-leaf-slow {
+  animation-name: hero-leaf-fall-slow;
+  animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
 }
 
 /* ── 히어로 로고 부유 ── */

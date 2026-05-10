@@ -3,7 +3,7 @@ import Link from "next/link";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import HeroSection from "@/components/ui/HeroSection";
 import { SITE } from "@/lib/constants";
-import { IconTree, IconHeart, IconMail, IconClipboard, IconCamera, IconMapPin, IconChild, IconTeen, IconAdult, IconFamily, IconPhone, IconMobile } from "@/components/icons";
+import { IconTree, IconHeart, IconMail, IconClipboard, IconCamera, IconMapPin, IconChild, IconTeen, IconAdult, IconFamily, IconPhone } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "푸른나무 심리센터 | 청주 심리상담·심리치료 전문기관",
@@ -85,9 +85,24 @@ export default function Home() {
           <h2 className="text-2xl md:text-4xl font-bold text-primary mb-5 heading-serif leading-snug">
             {SITE.slogan}
           </h2>
-          <p className="text-text-muted max-w-md mx-auto px-4 text-sm leading-relaxed">
+          <p className="text-text-muted max-w-md mx-auto px-4 text-sm leading-relaxed mb-12">
             {SITE.subSlogan}
           </p>
+
+          {/* ── 부설 센터 안내 (클라이언트 요청: 슬로건과 동일한 글자 크기) ── */}
+          <div className="max-w-3xl mx-auto px-4">
+            <div className="inline-block">
+              <span className="block text-xs tracking-[0.25em] text-primary/40 uppercase mb-4">
+                Affiliated Center
+              </span>
+            </div>
+            <h2 className="text-2xl md:text-4xl font-bold text-primary heading-serif leading-snug">
+              부설 푸른숲마음발달센터 운영중
+              <span className="block mt-3 text-xl md:text-2xl text-primary/80">
+                : 사회성 그룹 치료, 인지 학습 치료 전문
+              </span>
+            </h2>
+          </div>
         </AnimatedSection>
       </section>
 
@@ -175,19 +190,12 @@ export default function Home() {
               <p className="text-white/50 mb-8 text-sm font-light">
                 언제나 친절한 상담을 해드립니다. 전화예약 필수입니다.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+              <div className="flex justify-center mb-8">
                 <a
                   href={`tel:${SITE.phone}`}
                   className="text-3xl md:text-4xl font-bold hover:text-soft-green/80 transition-colors flex items-center gap-3 heading-serif"
                 >
                   <IconPhone size={28} /> {SITE.phone}
-                </a>
-                <span className="hidden sm:inline text-white/20">|</span>
-                <a
-                  href={`tel:${SITE.mobile}`}
-                  className="text-lg text-white/60 hover:text-white/80 transition-colors flex items-center gap-2"
-                >
-                  <IconMobile size={18} /> {SITE.mobile}
                 </a>
               </div>
               <div className="text-xs text-white/40 space-y-1.5 tracking-wide">

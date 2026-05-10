@@ -4,13 +4,15 @@ import { useState, FormEvent } from "react";
 import PageBanner from "@/components/ui/PageBanner";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { SITE } from "@/lib/constants";
-import { IconCheck, IconPhone, IconMobile, IconMail } from "@/components/icons";
+import { IconCheck, IconPhone, IconMail } from "@/components/icons";
 
 export default function ContactPage() {
   const [form, setForm] = useState({
     name: "",
     phone: "",
     email: "",
+    gender: "",
+    age: "",
     subject: "",
     content: "",
   });
@@ -30,7 +32,7 @@ export default function ContactPage() {
       if (!res.ok) throw new Error("전송 실패");
 
       setStatus("success");
-      setForm({ name: "", phone: "", email: "", subject: "", content: "" });
+      setForm({ name: "", phone: "", email: "", gender: "", age: "", subject: "", content: "" });
     } catch {
       setStatus("error");
     }
@@ -107,17 +109,44 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-semibold text-text-main mb-1.5">
-                    이메일
-                  </label>
-                  <input
-                    type="email"
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-lg border border-primary/15 bg-white/60 focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/10 transition-all text-sm"
-                    placeholder="example@email.com"
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                  <div>
+                    <label className="block text-sm font-semibold text-text-main mb-1.5">
+                      이메일
+                    </label>
+                    <input
+                      type="email"
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-lg border border-primary/15 bg-white/60 focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/10 transition-all text-sm"
+                      placeholder="example@email.com"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-text-main mb-1.5">성별</label>
+                    <select
+                      value={form.gender}
+                      onChange={(e) => setForm({ ...form, gender: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-lg border border-primary/15 bg-white/60 focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/10 transition-all text-sm"
+                    >
+                      <option value="">선택</option>
+                      <option value="여성">여성</option>
+                      <option value="남성">남성</option>
+                      <option value="기타">기타</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-text-main mb-1.5">나이</label>
+                    <input
+                      type="number"
+                      min={1}
+                      max={120}
+                      value={form.age}
+                      onChange={(e) => setForm({ ...form, age: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-lg border border-primary/15 bg-white/60 focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/10 transition-all text-sm"
+                      placeholder="만 나이"
+                    />
+                  </div>
                 </div>
 
                 <div>
@@ -170,19 +199,12 @@ export default function ContactPage() {
 
         {/* 연락처 정보 */}
         <AnimatedSection delay={200}>
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="paper-card rounded-2xl p-6 text-center">
               <div className="text-primary/40 mb-3 flex justify-center"><IconPhone size={24} /></div>
               <h4 className="font-semibold text-primary text-sm mb-1.5">전화</h4>
               <a href={`tel:${SITE.phone}`} className="text-text-muted text-sm hover:text-primary transition-colors">
                 {SITE.phone}
-              </a>
-            </div>
-            <div className="paper-card rounded-2xl p-6 text-center">
-              <div className="text-primary/40 mb-3 flex justify-center"><IconMobile size={24} /></div>
-              <h4 className="font-semibold text-primary text-sm mb-1.5">휴대폰</h4>
-              <a href={`tel:${SITE.mobile}`} className="text-text-muted text-sm hover:text-primary transition-colors">
-                {SITE.mobile}
               </a>
             </div>
             <div className="paper-card rounded-2xl p-6 text-center">

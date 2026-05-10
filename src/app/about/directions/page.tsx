@@ -7,7 +7,7 @@ import { SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "찾아오시는 길",
   description:
-    "푸른나무 심리센터 오시는 길 - 충북 청주시 상당구 중고개로 180-5 5층(용암동). 버스: 115, 111, 823, 502번 등 청주농협용암지점 하차. 전화 043-288-4040. 월~금 09:00~20:00, 토 09:00~18:00.",
+    "푸른나무 심리센터 오시는 길 - 충북 청주시 상당구 중고개로 180-5 5층(용암동). 버스: 115, 111, 823, 502번 등 청주농협용암지점 하차. 전화 043-288-4040. 월~금 9시~20시, 토 9시~18시.",
   alternates: { canonical: "/about/directions" },
   openGraph: {
     title: "찾아오시는 길 | 푸른나무 심리센터",
@@ -21,6 +21,7 @@ const aboutSubNav = [
   { label: "인사말", href: "/about" },
   { label: "연혁", href: "/about/history" },
   { label: "센터장소개", href: "/about/director" },
+  { label: "치료사 소개", href: "/about/therapists" },
   { label: "찾아오시는길", href: "/about/directions" },
 ];
 

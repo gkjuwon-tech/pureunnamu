@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PageBanner from "@/components/ui/PageBanner";
 import SubNav from "@/components/ui/SubNav";
 import AnimatedSection from "@/components/ui/AnimatedSection";
-import { IconAdult, IconFamily, IconChild, IconTeen } from "@/components/icons";
+import { IconAdult, IconChild, IconTeen } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "개인심리치료",
@@ -19,9 +19,10 @@ export const metadata: Metadata = {
 
 const programSubNav = [
   { label: "심리치료란?", href: "/programs/therapy" },
-  { label: "개인심리치료", href: "/programs/targets" },
   { label: "심리검사", href: "/programs/assessment" },
-  { label: "사회성향상집단상담", href: "/programs/group-therapy" },
+  { label: "개인심리치료", href: "/programs/targets" },
+  { label: "가족심리치료", href: "/programs/family" },
+  { label: "사회성그룹치료", href: "/programs/group-therapy" },
   { label: "인지학습치료", href: "/programs/cognitive-learning" },
 ];
 
@@ -37,14 +38,6 @@ const adultTargets = [
   { name: "회피·의존적 성격", desc: "자신의 중요한 일에 대해 스스로 결단하기 어려워하고 보호받고 싶은 욕구가 강하며 다른 사람의 욕구에 자신을 맞추는 경우가 많아요." },
   { name: "자기애적 성격", desc: "매 순간 내가 주인공이고 싶고, 나의 의견에 반대하거나 굴욕을 주었다고 느끼는 대상에게 화가 나며 아랫사람에겐 착취적으로 행동해요." },
   { name: "외상 후 스트레스 장애", desc: "충격적인 사건을 겪은 후, 그 사건이 뇌리에서 떠나지 않고 수시로 장면이 떠오르며 일상생활에 겁이 많아지고 성격의 변화를 느껴요." },
-];
-
-const familyTargets = [
-  "아이들은 게임중독에 빠지거나 친구들과 바깥으로 돌기 일쑤이고, 부모는 상대가 나를 이해해주기만을 바라며 다툼과 불화가 깊어져요.",
-  "가족의 일원이 큰 일을 당한 후, 어려움이 극복되지 않고 심리적인 문제까지 엉키기 시작하며 책임을 서로 전가시키고, 이제 같이 사는 것이 아무런 의미가 없어요.",
-  "가족행사에 잘 참석하지 않고 각자 자신의 일을 더 중요시하며 가정은 뒷전이에요.",
-  "우리 가족은 같이 살고 같이 죽는 엄청난 단결력을 자랑해요. 하지만 저는 그러면서도 마음 한 켠이 매우 불편하고 가끔 희생하고 있다는 느낌이 들어요.",
-  "부모의 자신의 어린 시절, 사랑 받지 못했던 경험 때문에 자신의 받았던 설움을 무의식 중에 자녀에게 되돌려줘요.",
 ];
 
 const childTargets = [
@@ -107,29 +100,8 @@ export default function TargetsPage() {
           </div>
         </AnimatedSection>
 
-        {/* 가족 */}
-        <AnimatedSection delay={100}>
-          <div className="paper-card rounded-3xl p-8 md:p-10 mb-8">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-primary/40"><IconFamily size={32} /></span>
-              <div>
-                <h2 className="text-2xl font-bold text-primary heading-serif">가족</h2>
-                <p className="text-text-muted text-xs tracking-wider">Family</p>
-              </div>
-            </div>
-            <div className="space-y-3">
-              {familyTargets.map((text, i) => (
-                <div key={i} className="bg-white/60 border border-primary/10 rounded-xl p-4 flex gap-3">
-                  <span className="text-primary font-bold mt-0.5 shrink-0">•</span>
-                  <p className="text-text-muted text-sm leading-relaxed">{text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </AnimatedSection>
-
         {/* 아동 */}
-        <AnimatedSection delay={200}>
+        <AnimatedSection delay={100}>
           <div className="paper-card rounded-3xl p-8 md:p-10 mb-8">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-primary/40"><IconChild size={32} /></span>
@@ -147,7 +119,7 @@ export default function TargetsPage() {
         </AnimatedSection>
 
         {/* 청소년 */}
-        <AnimatedSection delay={300}>
+        <AnimatedSection delay={200}>
           <div className="paper-card rounded-3xl p-8 md:p-10 mb-8">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-primary/40"><IconTeen size={32} /></span>
