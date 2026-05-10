@@ -1,0 +1,277 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --font-nanum: "Nanum Myeongjo", serif;
+  --font-body: "Noto Sans KR", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #f7f3ec;
+  background-image: url("https://www.transparenttextures.com/patterns/rice-paper.png");
+  color: #3a3a3a;
+  letter-spacing: -0.01em;
+  line-height: 1.7;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(74, 124, 46, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(74, 124, 46, 0.5);
+}
+
+::selection {
+  background: rgba(74, 124, 46, 0.15);
+  color: #2d5016;
+}
+
+a {
+  transition: color 0.3s ease;
+}
+
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.paper-card {
+  background-color: rgba(255, 253, 250, 0.95);
+  background-image: url("https://www.transparenttextures.com/patterns/rice-paper.png");
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.03),
+    0 4px 12px rgba(0, 0, 0, 0.04),
+    0 0 0 1px rgba(45, 80, 22, 0.05);
+  border: 1px solid rgba(45, 80, 22, 0.06);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.paper-card:hover {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(45, 80, 22, 0.08);
+}
+
+.green-gradient {
+  background-image: url("https://www.transparenttextures.com/patterns/rice-paper.png"), linear-gradient(145deg, #2d5016 0%, #3d6b22 50%, #4a7c2e 100%);
+  background-blend-mode: overlay, normal;
+}
+
+.glass {
+  background-color: rgba(255, 253, 250, 0.95);
+  background-image: url("https://www.transparenttextures.com/patterns/rice-paper.png");
+  border: 1px solid rgba(45, 80, 22, 0.08); /* changed from clear white to a subtle green border */
+}
+
+.texture-bg {
+  background-image: url("https://www.transparenttextures.com/patterns/rice-paper.png");
+}
+
+.btn-primary {
+  background-color: rgb(74, 124, 46);
+  background-image: url("https://www.transparenttextures.com/patterns/rice-paper.png");
+  background-blend-mode: overlay, normal;
+  color: white;
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: rgb(61, 107, 34);
+  box-shadow: 0 4px 14px rgba(74, 124, 46, 0.2);
+}
+
+.heading-serif {
+  font-family: var(--font-nanum);
+  letter-spacing: -0.02em;
+}
+
+.subtle-underline {
+  position: relative;
+}
+.subtle-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, #4a7c2e, transparent);
+  transition: width 0.4s ease;
+}
+.subtle-underline:hover::after {
+  width: 100%;
+}
+
+/* ── 챗봇 애니메이션 ── */
+
+@keyframes chat-open {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes msg-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes chatbot-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(45, 80, 22, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(45, 80, 22, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(45, 80, 22, 0);
+  }
+}
+
+.animate-chat-open {
+  animation: chat-open 0.3s ease-out;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.4s ease-out;
+}
+
+.animate-msg-in {
+  animation: msg-in 0.25s ease-out;
+}
+
+.chatbot-pulse {
+  animation: chatbot-ring 2.5s ease-out infinite;
+}
+
+/* Gallery lightbox */
+@keyframes gallery-lb-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-gallery-lb-in {
+  animation: gallery-lb-in 0.25s ease-out;
+}
+
+/* ── 히어로 잎사귀 떠다니기 ── */
+@keyframes hero-leaf-fall {
+  0% {
+    transform: translateY(-60px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(calc(100vh + 60px)) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.hero-leaf {
+  animation: hero-leaf-fall linear infinite;
+  top: -60px;
+}
+
+/* ── 히어로 로고 부유 ── */
+@keyframes hero-logo-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.hero-logo-float {
+  animation: hero-logo-float 5s ease-in-out infinite;
+}
+
+/* ── 잎사귀 부유 장식 ── */
+@keyframes leaf-drift {
+  0%, 100% {
+    transform: translateY(0px) rotate(25deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(35deg);
+  }
+}
+
+@keyframes leaf-drift-reverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(-40deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(-30deg);
+  }
+}
+
+.leaf-drift {
+  animation: leaf-drift 6s ease-in-out infinite;
+}
+
+.leaf-drift-reverse {
+  animation: leaf-drift-reverse 7s ease-in-out infinite;
+}
+
+/* ── 섹션 구분 곡선 ── */
+.section-wave {
+  position: relative;
+}
+
+.section-wave::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(74, 124, 46, 0.12), transparent);
+}

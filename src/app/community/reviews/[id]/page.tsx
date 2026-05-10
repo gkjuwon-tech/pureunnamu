@@ -1,0 +1,21 @@
+import PageBanner from "@/components/ui/PageBanner";
+import BoardDetail from "@/components/ui/BoardDetail";
+import AnimatedSection from "@/components/ui/AnimatedSection";
+
+export default function ReviewDetailPage({ params }: { params: { id: string } }) {
+  return (
+    <div>
+      <PageBanner title="상담후기" breadcrumb={["커뮤니티", "상담후기"]} />
+
+      <div className="max-w-4xl mx-auto px-4 py-12">
+        <AnimatedSection>
+          <BoardDetail
+            apiUrl="/api/reviews"
+            listPath="/community/reviews"
+            postId={params.id}
+          />
+        </AnimatedSection>
+      </div>
+    </div>
+  );
+}

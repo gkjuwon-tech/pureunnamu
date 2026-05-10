@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Notice {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  author    String   @default("관리자")
+  isNotice  Boolean  @default(false)
+  views     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Review {
+  id               Int      @id @default(autoincrement())
+  title            String
+  content          String
+  author           String
+  password         String
+  parentId         Int?
+  parent           Review?  @relation("ReviewReplies", fields: [parentId], references: [id])
+  replies          Review[] @relation("ReviewReplies")
+  views            Int      @default(0)
+  moderationStatus String   @default("PASS")
+  moderationReason String   @default("")
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model FreeBoard {
+  id               Int         @id @default(autoincrement())
+  title            String
+  content          String
+  author           String
+  password         String
+  parentId         Int?
+  parent           FreeBoard?  @relation("FreeBoardReplies", fields: [parentId], references: [id])
+  replies          FreeBoard[] @relation("FreeBoardReplies")
+  views            Int         @default(0)
+  moderationStatus String      @default("PASS") // PASS | REVIEW | BLOCK
+  moderationReason String      @default("")
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+}
+
+model Inquiry {
+  id        Int      @id @default(autoincrement())
+  name      String
+  phone     String
+  email     String   @default("")
+  subject   String
+  content   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model GalleryItem {
+  id        Int      @id @default(autoincrement())
+  category  String
+  title     String
+  imageUrl  String
+  createdAt DateTime @default(now())
+}

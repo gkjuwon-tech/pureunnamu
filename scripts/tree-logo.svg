@@ -1,0 +1,60 @@
+<svg viewBox="-6 -12 64 72" xmlns="http://www.w3.org/2000/svg">
+  <!-- 줄기 -->
+  <path d="M24 56 C24 50 23.5 44 24 38 C24.5 34 25 32 25.5 28" stroke="#6B4F36" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- 가지들 -->
+  <path d="M24.5 35 Q19 30 12 26" stroke="#6B4F36" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M12 26 Q8 22 5 18" stroke="#6B4F36" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+  <path d="M25 30 Q19 24 14 18" stroke="#6B4F36" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M14 18 Q10 13 8 8" stroke="#6B4F36" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+  <path d="M17 20 Q14 15 11 10" stroke="#6B4F36" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <path d="M25.5 28 Q32 22 40 18" stroke="#6B4F36" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M35 21 Q40 16 44 11" stroke="#6B4F36" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+  <path d="M40 18 Q43 13 46 8" stroke="#6B4F36" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+  <path d="M30 25 Q34 22 37 17" stroke="#6B4F36" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+  <path d="M25 29 Q23 22 20 14" stroke="#6B4F36" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M20 14 Q18 9 17 4" stroke="#6B4F36" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <path d="M25.5 27 Q28 20 30 12" stroke="#6B4F36" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+  <path d="M30 12 Q32 7 34 3" stroke="#6B4F36" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+  <!-- 잎사귀 -->
+  <g transform="translate(25, 18) scale(1.4) translate(-25, -18)">
+    <path d="M12 26 Q8 24 5 21 Q9 22 12 26Z" fill="#4A7C2A"/>
+    <path d="M12 26 Q9 28 6 28 Q9 25 12 26Z" fill="#558B35"/>
+    <path d="M5 18 Q2 15 0 11 Q4 13 5 18Z" fill="#4A7C2A"/>
+    <path d="M5 18 Q2 19 0 17 Q3 16 5 18Z" fill="#6BAF40"/>
+    <path d="M8 22 Q5 19 3 15 Q7 17 8 22Z" fill="#558B35"/>
+    <path d="M8 8 Q5 4 4 0 Q8 3 8 8Z" fill="#4A7C2A"/>
+    <path d="M8 8 Q4 8 2 5 Q6 5 8 8Z" fill="#6BAF40"/>
+    <path d="M11 10 Q8 6 7 2 Q11 5 11 10Z" fill="#558B35"/>
+    <path d="M14 18 Q10 16 7 13 Q11 14 14 18Z" fill="#6BAF40"/>
+    <path d="M14 18 Q11 20 8 19 Q11 17 14 18Z" fill="#3D6B22"/>
+    <path d="M11 13 Q8 10 6 6 Q10 8 11 13Z" fill="#4A7C2A"/>
+    <path d="M20 14 Q17 10 16 5 Q20 8 20 14Z" fill="#558B35"/>
+    <path d="M20 14 Q16 14 13 11 Q17 12 20 14Z" fill="#4A7C2A"/>
+    <path d="M17 4 Q15 0 16 -2 Q19 1 17 4Z" fill="#6BAF40"/>
+    <path d="M17 4 Q13 3 12 0 Q16 1 17 4Z" fill="#558B35"/>
+    <path d="M18 9 Q15 5 14 1 Q18 4 18 9Z" fill="#8BC34A"/>
+    <path d="M30 12 Q33 8 35 4 Q31 7 30 12Z" fill="#4A7C2A"/>
+    <path d="M30 12 Q33 13 35 10 Q32 10 30 12Z" fill="#6BAF40"/>
+    <path d="M34 3 Q36 -1 35 -2 Q33 1 34 3Z" fill="#558B35"/>
+    <path d="M34 3 Q37 2 38 -1 Q35 1 34 3Z" fill="#4A7C2A"/>
+    <path d="M32 7 Q34 3 36 1 Q33 5 32 7Z" fill="#8BC34A"/>
+    <path d="M40 18 Q44 15 47 12 Q43 14 40 18Z" fill="#558B35"/>
+    <path d="M40 18 Q43 20 46 19 Q43 17 40 18Z" fill="#4A7C2A"/>
+    <path d="M44 11 Q47 7 49 4 Q45 7 44 11Z" fill="#4A7C2A"/>
+    <path d="M44 11 Q48 11 50 8 Q47 9 44 11Z" fill="#6BAF40"/>
+    <path d="M46 8 Q49 4 51 1 Q47 4 46 8Z" fill="#558B35"/>
+    <path d="M46 8 Q50 8 52 5 Q49 6 46 8Z" fill="#3D6B22"/>
+    <path d="M35 21 Q38 18 40 14 Q37 17 35 21Z" fill="#6BAF40"/>
+    <path d="M37 17 Q40 13 42 10 Q39 14 37 17Z" fill="#558B35"/>
+    <path d="M37 17 Q40 18 42 16 Q39 16 37 17Z" fill="#4A7C2A"/>
+    <path d="M22 20 Q18 17 16 14 Q20 16 22 20Z" fill="#6BAF40"/>
+    <path d="M28 18 Q31 14 34 11 Q30 15 28 18Z" fill="#558B35"/>
+    <path d="M24 16 Q21 12 19 8 Q23 11 24 16Z" fill="#4A7C2A"/>
+    <path d="M27 14 Q30 10 32 7 Q28 11 27 14Z" fill="#6BAF40"/>
+    <path d="M3 14 Q0 11 -1 7 Q3 9 3 14Z" fill="#558B35"/>
+    <path d="M10 5 Q7 1 9 -1 Q11 2 10 5Z" fill="#4A7C2A"/>
+    <path d="M42 14 Q45 11 47 7 Q43 10 42 14Z" fill="#4A7C2A"/>
+    <path d="M48 6 Q51 2 50 0 Q48 3 48 6Z" fill="#558B35"/>
+    <path d="M22 6 Q20 2 22 -1 Q24 2 22 6Z" fill="#8BC34A"/>
+  </g>
+</svg>
