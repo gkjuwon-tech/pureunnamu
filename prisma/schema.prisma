@@ -3,8 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  // Vercel Postgres (Neon 기반) 가 자동 주입하는 DATABASE_URL 사용.
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model Notice {
