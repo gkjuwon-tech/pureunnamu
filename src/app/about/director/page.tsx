@@ -45,9 +45,9 @@ const main: DirectorProfile = {
   // photo: "/director/cho-mie.jpg", // 자료 제공 시 추가
   highlight: "2008년부터 현재까지 한해 평균 1,500시간 이상의 심리상담 실시",
   education: [
-    { year: "2008. 02", detail: "충북대학교 일반대학원 심리학과 졸업 (석사)" },
-    { year: "1996. 06", detail: "이탈리아 카라라 국립미술아카데미 조각과 졸업" },
-    { year: "1984. 02", detail: "홍익대학교 미술대학 조소과 졸업" },
+    { detail: "충북대학교 일반대학원 심리학과 졸업 (석사)" },
+    { detail: "이탈리아 카라라 국립미술아카데미 조각과 졸업" },
+    { detail: "홍익대학교 미술대학 조소과 졸업" },
   ],
   sections: [
     {
