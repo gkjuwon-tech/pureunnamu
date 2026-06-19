@@ -54,7 +54,6 @@ export default function Footer() {
               <Link href="/about" className="hover:text-white/90 transition-colors">센터소개</Link>
               <Link href="/programs/therapy" className="hover:text-white/90 transition-colors">프로그램</Link>
               <Link href="/gallery" className="hover:text-white/90 transition-colors">갤러리</Link>
-              <Link href="/contact" className="hover:text-white/90 transition-colors">온라인문의</Link>
               <Link href="/community/notices" className="hover:text-white/90 transition-colors">공지사항</Link>
               <Link href="/community/reviews" className="hover:text-white/90 transition-colors">상담후기</Link>
             </div>

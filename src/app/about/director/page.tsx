@@ -47,7 +47,6 @@ const main: DirectorProfile = {
   education: [
     { detail: "충북대학교 일반대학원 심리학과 졸업 (석사)" },
     { detail: "이탈리아 카라라 국립미술아카데미 조각과 졸업" },
-    { detail: "홍익대학교 미술대학 조소과 졸업" },
   ],
   sections: [
     {
@@ -71,7 +70,6 @@ const sub: DirectorProfile = {
   // photo: "/director/kim-mi.jpg",
   highlight: "아동·청소년·가족 상담 및 사회성그룹·미술놀이치료 전문 / 임상경력 8년",
   education: [
-    { detail: "나사렛대학교 심리재활학과 학사 졸업" },
     { detail: "한양대학교 상담심리대학원 상담심리전공 석사 졸업" },
     { detail: "차의과학대학교 일반대학원 의학과 임상상담심리전공 박사 재학" },
   ],

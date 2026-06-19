@@ -66,11 +66,6 @@ export const NAV_ITEMS = [
     ],
   },
   {
-    label: "온라인문의",
-    href: "/contact",
-    children: [],
-  },
-  {
     label: "커뮤니티",
     href: "/community/notices",
     children: [

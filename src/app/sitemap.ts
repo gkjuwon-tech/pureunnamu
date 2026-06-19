@@ -15,7 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "/programs/assessment", priority: 0.9, changeFrequency: "monthly" as const },
     { url: "/programs/assessment-types", priority: 0.8, changeFrequency: "monthly" as const },
     { url: "/gallery", priority: 0.6, changeFrequency: "weekly" as const },
-    { url: "/contact", priority: 0.8, changeFrequency: "monthly" as const },
     { url: "/community/notices", priority: 0.6, changeFrequency: "weekly" as const },
     { url: "/community/reviews", priority: 0.6, changeFrequency: "weekly" as const },
     { url: "/community/free-board", priority: 0.5, changeFrequency: "weekly" as const },
