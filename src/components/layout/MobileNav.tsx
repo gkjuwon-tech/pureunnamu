@@ -50,12 +50,12 @@ export default function MobileNav() {
                     }}
                     className="w-full flex justify-between items-center px-6 py-4 text-text-main hover:text-primary hover:bg-soft-green/20 transition-colors"
                   >
-                    {item.children.length === 0 ? (
+                    {item.children.length > 0 ? (
+                      <span>{item.label}</span>
+                    ) : (
                       <Link href={item.href} onClick={() => setIsOpen(false)}>
                         {item.label}
                       </Link>
-                    ) : (
-                      <span>{item.label}</span>
                     )}
                     {item.children.length > 0 && (
                       <svg

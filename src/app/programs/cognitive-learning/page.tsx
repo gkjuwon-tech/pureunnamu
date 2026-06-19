@@ -39,8 +39,9 @@ export default function CognitiveLearningPage() {
             <h2 className="text-2xl font-bold text-primary heading-serif mb-4">
               인지학습치료
             </h2>
-            <p className="text-text-muted text-sm leading-relaxed">
-              상세 내용은 준비 중입니다.
+            <p className="text-text-muted text-sm leading-relaxed max-w-xl mx-auto">
+              아동의 인지 기능과 학습 수준을 평가하여 교과 수준에 맞춘 맞춤형 프로그램입니다. 취약한 인지 영역을
+              중심으로 단계적인 학습을 지원합니다.
             </p>
           </div>
         </AnimatedSection>

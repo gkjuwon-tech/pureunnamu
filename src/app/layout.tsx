@@ -211,7 +211,7 @@ function LocalBusinessJsonLd() {
         name: "예약은 어떻게 하나요?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "전화(043-288-4040) 또는 홈페이지 온라인 문의를 통해 예약하실 수 있습니다. 100% 예약제로 운영됩니다.",
+          text: "전화(043-288-4040)로 예약하실 수 있습니다. 100% 예약제로 운영됩니다.",
         },
       },
     ],
@@ -243,6 +243,21 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
+        {/* 제목용 나눔명조는 self-host(globals.css @font-face) — 주요 굵기 preload */}
+        <link
+          rel="preload"
+          as="font"
+          type="font/woff2"
+          href="/fonts/nanum-myeongjo-korean-700-normal.woff2"
+          crossOrigin="anonymous"
+        />
+        {/* 본문 Noto Sans KR 은 구글폰트 lazy subset 로드가 안정적이라 그대로 사용 */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
         <LocalBusinessJsonLd />
       </head>
       <body className="min-h-screen flex flex-col">

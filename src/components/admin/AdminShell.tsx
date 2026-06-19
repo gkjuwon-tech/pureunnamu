@@ -5,7 +5,6 @@ import { usePathname, useRouter } from "next/navigation";
 
 const NAV = [
   { label: "대시보드", href: "/admin" },
-  { label: "온라인 문의", href: "/admin/inquiries" },
   { label: "공지사항", href: "/admin/notices" },
   { label: "상담후기", href: "/admin/reviews" },
   { label: "자유게시판", href: "/admin/free-board" },

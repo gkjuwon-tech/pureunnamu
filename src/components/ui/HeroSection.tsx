@@ -272,7 +272,7 @@ export default function HeroSection() {
               className="transition-all duration-1000 ease-out"
               style={{ transitionDelay: "600ms", opacity: mounted ? 1 : 0, transform: mounted ? "translateY(0)" : "translateY(2rem)" }}
             >
-              {/* 클라이언트 요청: 히어로에선 전화 버튼만 노출. (온라인문의는 상단 GNB / 하단 섹션에 유지) */}
+              {/* 클라이언트 요청: 히어로에선 전화 버튼만 노출. */}
               <div className="flex justify-center">
                 <a
                   href={`tel:${SITE.phone}`}

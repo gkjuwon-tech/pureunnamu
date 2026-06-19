@@ -3,7 +3,7 @@ import Link from "next/link";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import HeroSection from "@/components/ui/HeroSection";
 import { SITE } from "@/lib/constants";
-import { IconTree, IconHeart, IconMail, IconClipboard, IconCamera, IconMapPin, IconChild, IconTeen, IconAdult, IconFamily, IconPhone } from "@/components/icons";
+import { IconTree, IconHeart, IconClipboard, IconCamera, IconMapPin, IconChild, IconTeen, IconAdult, IconFamily, IconPhone } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "푸른나무 심리센터 | 청주 심리상담·심리치료 전문기관",
@@ -32,10 +32,10 @@ const quickLinks = [
     icon: "heart",
   },
   {
-    title: "상담 문의",
-    desc: "궁금하신 점이나 상담 예약 등\n무엇이든 편하게 남겨주세요.",
-    href: "/contact",
-    icon: "mail",
+    title: "전화 상담·예약",
+    desc: "100% 예약제로 운영됩니다.\n편하게 전화로 문의해 주세요.",
+    href: `tel:${SITE.phone}`,
+    icon: "phone",
   },
   {
     title: "공지사항",
@@ -143,26 +143,38 @@ export default function Home() {
       {/* 퀵 링크 카드 */}
       <section className="max-w-5xl mx-auto px-4 pb-24">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {quickLinks.map((item, i) => (
-            <AnimatedSection key={item.title} delay={i * 80}>
-              <Link href={item.href} className="block">
-                <div className="paper-card rounded-3xl p-7 group h-full">
-                  <span className="block mb-4 text-primary/40 group-hover:text-primary/60 transition-colors">
-                    {item.icon === "tree" && <IconTree size={28} />}
-                    {item.icon === "heart" && <IconHeart size={28} />}
-                    {item.icon === "mail" && <IconMail size={28} />}
-                    {item.icon === "clipboard" && <IconClipboard size={28} />}
-                    {item.icon === "camera" && <IconCamera size={28} />}
-                    {item.icon === "mappin" && <IconMapPin size={28} />}
-                  </span>
-                  <h4 className="font-semibold text-primary text-sm mb-2 whitespace-pre-line group-hover:text-primary-light transition-colors leading-relaxed">
-                    {item.title}
-                  </h4>
-                  <p className="text-xs text-text-muted leading-relaxed whitespace-pre-line">{item.desc}</p>
-                </div>
-              </Link>
-            </AnimatedSection>
-          ))}
+          {quickLinks.map((item, i) => {
+            const inner = (
+              <div className="paper-card rounded-3xl p-7 group h-full">
+                <span className="block mb-4 text-primary/40 group-hover:text-primary/60 transition-colors">
+                  {item.icon === "tree" && <IconTree size={28} />}
+                  {item.icon === "heart" && <IconHeart size={28} />}
+                  {item.icon === "phone" && <IconPhone size={28} />}
+                  {item.icon === "clipboard" && <IconClipboard size={28} />}
+                  {item.icon === "camera" && <IconCamera size={28} />}
+                  {item.icon === "mappin" && <IconMapPin size={28} />}
+                </span>
+                <h4 className="font-semibold text-primary text-sm mb-2 whitespace-pre-line group-hover:text-primary-light transition-colors leading-relaxed">
+                  {item.title}
+                </h4>
+                <p className="text-xs text-text-muted leading-relaxed whitespace-pre-line">{item.desc}</p>
+              </div>
+            );
+            const isTel = item.href.startsWith("tel:");
+            return (
+              <AnimatedSection key={item.title} delay={i * 80}>
+                {isTel ? (
+                  <a href={item.href} className="block">
+                    {inner}
+                  </a>
+                ) : (
+                  <Link href={item.href} className="block">
+                    {inner}
+                  </Link>
+                )}
+              </AnimatedSection>
+            );
+          })}
         </div>
       </section>
 

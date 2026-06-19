@@ -2,11 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap");
+/* 웹폰트는 layout.tsx <head> 의 <link> 로 로드한다.
+   (CSS @import 를 @tailwind 뒤에 두면 컴파일 후 무시되어 iOS 에서 폰트가 적용되지 않음) */
 
 :root {
   --font-nanum: "Nanum Myeongjo", serif;
   --font-body: "Noto Sans KR", sans-serif;
+}
+
+/* ── 나눔명조 self-host ──
+   구글폰트는 한글을 unicode-range 로 100여 개 파일로 쪼개 lazy-load 하는데,
+   본문(Noto)과 달리 제목용 나눔명조는 iOS 에서 한글 subset 이 안정적으로 안 내려와
+   제목만 fallback 으로 떨어졌다. → 한글 전체를 담은 단일 woff2 로 직접 호스팅. */
+@font-face {
+  font-family: "Nanum Myeongjo";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/nanum-myeongjo-korean-400-normal.woff2") format("woff2");
+  unicode-range: U+1100-11FF, U+3001-303F, U+3130-318F, U+A960-A97F, U+AC00-D7A3, U+D7B0-D7FF, U+FF00-FFEF;
+}
+@font-face {
+  font-family: "Nanum Myeongjo";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/nanum-myeongjo-korean-700-normal.woff2") format("woff2");
+  unicode-range: U+1100-11FF, U+3001-303F, U+3130-318F, U+A960-A97F, U+AC00-D7A3, U+D7B0-D7FF, U+FF00-FFEF;
+}
+@font-face {
+  font-family: "Nanum Myeongjo";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/fonts/nanum-myeongjo-korean-800-normal.woff2") format("woff2");
+  unicode-range: U+1100-11FF, U+3001-303F, U+3130-318F, U+A960-A97F, U+AC00-D7A3, U+D7B0-D7FF, U+FF00-FFEF;
+}
+@font-face {
+  font-family: "Nanum Myeongjo";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/nanum-myeongjo-latin-400-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+FFFD;
+}
+@font-face {
+  font-family: "Nanum Myeongjo";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/nanum-myeongjo-latin-700-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+FFFD;
+}
+@font-face {
+  font-family: "Nanum Myeongjo";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/fonts/nanum-myeongjo-latin-800-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+FFFD;
 }
 
 html {
