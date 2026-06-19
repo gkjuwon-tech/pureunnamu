@@ -1,22 +1,14 @@
 /**
- * 게시판 AI 모더레이션 - GPT-4.1-nano
+ * 게시판 AI 모더레이션 - Google Gemini (gemini-2.5-flash)
  *
- * nano는 뇌가 나노 사이즈라 JSON을 맘대로 꾸밈.
- * 대비책: 퓨삿 5개(시스템) + 대화턴 퓨삿 2개 + 정규식 4단계 폴백 파서
- *
- * nano의 창의적 출력 패턴:
- * - ```json { ... } ``` 마크다운으로 감싸기
- * - "네! 분석 결과입니다:" 서론 붙이기
- * - JSON 안에 줄바꿈 넣기
- * - confidence를 "높음"이라고 쓰기
- * - 중괄호 안 닫기
+ * 퓨삿 2턴(모범답안) + responseMimeType=application/json 으로 JSON 강제.
+ * 그래도 혹시 모를 변형에 대비해 정규식 4단계 폴백 파서를 그대로 유지.
  *
  * 토큰: 시스템 ~500 + 퓨삿대화 ~100 + 유저 ~200 = 요청당 ~800토큰
- * 비용: 글 1건당 약 0.08원
  */
 
-import OpenAI from "openai";
 import { MODERATION_SYSTEM_PROMPT } from "./context";
+import { geminiGenerate } from "./gemini";
 
 export interface ModerationResult {
   action: "PASS" | "REVIEW" | "BLOCK";
@@ -89,49 +81,44 @@ export async function moderateContent(
   title: string,
   content: string
 ): Promise<ModerationResult> {
-  if (!process.env.OPENAI_API_KEY) {
+  if (!process.env.GEMINI_API_KEY) {
     return DEFAULT_RESULT;
   }
 
   try {
-    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-
     // 토큰 최적화: 제목+내용을 500자로 제한
     const truncatedContent = content.length > 400 ? content.slice(0, 400) + "..." : content;
     const truncatedTitle = title.length > 100 ? title.slice(0, 100) + "..." : title;
 
-    const response = await openai.chat.completions.create({
-      model: "gpt-4.1-nano",
-      messages: [
-        { role: "system", content: MODERATION_SYSTEM_PROMPT },
-        // 퓨삿: assistant 턴으로 모범답안을 직접 보여줘서 nano도 따라하게
+    const text = await geminiGenerate({
+      system: MODERATION_SYSTEM_PROMPT,
+      contents: [
+        // 퓨삿: model 턴으로 모범답안을 직접 보여줘서 그대로 따라하게
         {
           role: "user",
-          content: "제목: 놀이치료 후기\n내용: 아이가 많이 좋아졌어요 감사합니다",
+          parts: [{ text: "제목: 놀이치료 후기\n내용: 아이가 많이 좋아졌어요 감사합니다" }],
         },
         {
-          role: "assistant",
-          content: '{"action":"PASS","reason":"센터 이용 후기","confidence":0.95}',
+          role: "model",
+          parts: [{ text: '{"action":"PASS","reason":"센터 이용 후기","confidence":0.95}' }],
         },
         {
           role: "user",
-          content: "제목: ★대출★\n내용: 신용불량도 OK 010-1234-5678",
+          parts: [{ text: "제목: ★대출★\n내용: 신용불량도 OK 010-1234-5678" }],
         },
         {
-          role: "assistant",
-          content: '{"action":"BLOCK","reason":"불법 대출 광고","confidence":0.99}',
+          role: "model",
+          parts: [{ text: '{"action":"BLOCK","reason":"불법 대출 광고","confidence":0.99}' }],
         },
         // 실제 판단 대상
         {
           role: "user",
-          content: `제목: ${truncatedTitle}\n내용: ${truncatedContent}`,
+          parts: [{ text: `제목: ${truncatedTitle}\n내용: ${truncatedContent}` }],
         },
       ],
-      temperature: 0.1,
-      max_tokens: 100,
+      generationConfig: { temperature: 0.1, maxOutputTokens: 100, responseMimeType: "application/json" },
     });
 
-    const text = response.choices[0]?.message?.content?.trim();
     if (!text) return DEFAULT_RESULT;
 
     const parsed = parseNanoResponse(text);
