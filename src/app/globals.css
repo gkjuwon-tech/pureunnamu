@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap");
+/* 웹폰트는 layout.tsx <head> 의 <link> 로 로드한다.
+   (CSS @import 를 @tailwind 뒤에 두면 컴파일 후 무시되어 iOS 에서 폰트가 적용되지 않음) */
 
 :root {
   --font-nanum: "Nanum Myeongjo", serif;

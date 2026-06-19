@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import PageBanner from "@/components/ui/PageBanner";
 import SubNav from "@/components/ui/SubNav";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -114,17 +113,6 @@ function ProfileColumn({ p, accent = false }: { p: DirectorProfile; accent?: boo
   return (
     <div>
       <div className="text-center">
-        <div className="mx-auto mb-5 relative w-32 h-32 rounded-full overflow-hidden bg-primary/[0.06] border border-primary/10">
-          {p.photo ? (
-            <Image src={p.photo} alt={`${p.name} 사진`} fill className="object-cover" sizes="128px" />
-          ) : (
-            <div className="absolute inset-0 flex items-center justify-center text-primary/30 text-xs text-center leading-tight">
-              사진 자료
-              <br />
-              업로드 예정
-            </div>
-          )}
-        </div>
         <h2 className="text-2xl font-bold text-primary heading-serif">{p.name}</h2>
         <p className="text-primary/60 text-sm mt-1">{p.role}</p>
         <p className="text-primary/40 text-xs mt-1">{p.subtitle}</p>
