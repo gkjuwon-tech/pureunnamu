@@ -41,8 +41,8 @@ export default function GroupTherapyPage() {
             </h2>
             <p className="text-primary/50 text-xs tracking-wider mb-6">구 · 사회성향상집단상담</p>
             <p className="text-text-muted text-sm leading-relaxed max-w-xl mx-auto">
-              부설 푸른숲마음발달센터에서 진행되는 사회성 그룹 치료 프로그램입니다. 또래 관계 개선, 사회적 기술 훈련,
-              자기표현 향상 등 그룹 활동을 통해 단계적으로 사회성을 키울 수 있도록 돕습니다.
+              아동의 특성을 반영해 설계된 집단 프로그램 속에서 또래와의 상호작용을 통해 의사소통과 감정조절을
+              습득합니다. 그룹에서 실제적인 연습을 통해 사회적응능력을 향상시킵니다.
             </p>
           </div>
         </AnimatedSection>
